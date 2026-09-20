@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChakraSutra</title>
+    <meta
+      name="description"
+      content="ChakraSutra — AI-powered yoga, wellness and posture guidance"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-mark">
+          <span class="dot"></span>
+          <div>
+            <h1>ChakraSutra</h1>
+            <p>Align Body. Balance Mind. Live Better.</p>
+          </div>
+        </div>
+        <button class="ghost-btn" id="quickStartBtn">Start practice</button>
+      </header>
+
+      <main class="layout">
+        <section class="panel intro-panel">
+          <div class="eyebrow">Personal wellness companion</div>
+          <h2>Yoga guidance for your body, mood, weather, and daily rhythm.</h2>
+          <p>
+            Personalized yoga sessions, safe movement plans, real-time posture feedback,
+            hydration support, and mindful meal suggestions made for modern wellness.
+          </p>
+
+          <div class="stats-row">
+            <div class="stat-card">
+              <strong>8 min</strong>
+              <span>Daily plan</span>
+            </div>
+            <div class="stat-card">
+              <strong>95%</strong>
+              <span>Safety-aware</span>
+            </div>
+            <div class="stat-card">
+              <strong>4.9</strong>
+              <span>Warm guidance</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel form-panel">
+          <div class="section-header">
+            <span class="chip accent">Profile</span>
+            <h3>Onboarding</h3>
+          </div>
+
+          <form id="profileForm" class="profile-form">
+            <div class="field-grid two-col">
+              <label>
+                <span>Name</span>
+                <input type="text" id="name" value="Aarav" />
+              </label>
+              <label>
+                <span>Location</span>
+                <input type="text" id="location" value="Chennai" />
+              </label>
+            </div>
+
+            <div class="field-grid three-col">
+              <label>
+                <span>Age</span>
+                <input type="number" id="age" value="24" min="10" max="80" />
+              </label>
+              <label>
+                <span>Height</span>
+                <input type="number" id="height" value="172" min="100" max="220" />
+              </label>
+              <label>
+                <span>Weight</span>
+                <input type="number" id="weight" value="68" min="30" max="200" />
+              </label>
+            </div>
+
+            <div class="field-grid two-col">
+              <label>
+                <span>Language</span>
+                <select id="language">
+                  <option selected>Tamil</option>
+                  <option>English</option>
+                  <option>Hindi</option>
+                  <option>Telugu</option>
+                </select>
+              </label>
+              <label>
+                <span>Goal</span>
+                <select id="goal">
+                  <option selected>Stress relief</option>
+                  <option>Flexibility</option>
+                  <option>Weight management</option>
+                  <option>General fitness</option>
+                  <option>Better posture</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="field-grid two-col">
+              <label>
+                <span>Diet preference</span>
+                <select id="diet">
+                  <option selected>Vegetarian</option>
+                  <option>Eggitarian</option>
+                  <option>Non-vegetarian</option>
+                </select>
+              </label>
+              <label>
+                <span>Available time</span>
+                <select id="time">
+                  <option selected>10 minutes</option>
+                  <option>5 minutes</option>
+                  <option>20 minutes</option>
+                  <option>30 minutes</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="field-grid">
+              <label>
+                <span>Coaching style</span>
+                <select id="coachingStyle">
+                  <option selected>Friendly & Calm</option>
+                  <option>Friendly & Funny</option>
+                  <option>Silent Visual Mode</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="questionBlock">
+              <div class="section-header subheader">
+                <span class="chip">Safety</span>
+                <h4>Health check</h4>
+              </div>
+
+              <div class="check-grid">
+                <label><input type="checkbox" checked /> Knee discomfort</label>
+                <label><input type="checkbox" /> Neck pain</label>
+                <label><input type="checkbox" /> High blood pressure</label>
+                <label><input type="checkbox" /> Recent surgery</label>
+                <label><input type="checkbox" /> Balance issues</label>
+                <label><input type="checkbox" /> Thyroid condition</label>
+              </div>
+            </div>
+
+            <button type="button" class="primary-btn" id="generatePlanBtn">Generate plan</button>
+          </form>
+        </section>
+      </main>
+
+      <main class="dashboard" id="dashboard">
+        <section class="panel summary-panel">
+          <div class="section-header">
+            <span class="chip accent">Today</span>
+            <h3>Wellness snapshot</h3>
+          </div>
+
+          <div class="card-stack">
+            <div class="mini-card">
+              <div class="icon">☀️</div>
+              <div>
+                <strong id="weatherCard">Hot & humid</strong>
+                <span>32°C · 68% humidity</span>
+              </div>
+            </div>
+            <div class="mini-card">
+              <div class="icon">💧</div>
+              <div>
+                <strong>Hydration check</strong>
+                <span>Drink water before and after practice.</span>
+              </div>
+            </div>
+            <div class="mini-card">
+              <div class="icon">🥗</div>
+              <div>
+                <strong>Diet suggestion</strong>
+                <span>Idli + sambar + fruit</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel mood-panel">
+          <div class="section-header">
+            <span class="chip accent">Mood</span>
+            <h3>How are you feeling today?</h3>
+          </div>
+
+          <div class="mood-grid" id="moodGrid">
+            <button class="mood-btn" data-mood="Sad">😢<span>Sad</span></button>
+            <button class="mood-btn" data-mood="Worried">😟<span>Worried</span></button>
+            <button class="mood-btn" data-mood="Stressed">😵<span>Stressed</span></button>
+            <button class="mood-btn" data-mood="Irritated">😤<span>Irritated</span></button>
+            <button class="mood-btn active" data-mood="Normal">🙂<span>Normal</span></button>
+            <button class="mood-btn" data-mood="Energetic">🤩<span>Energetic</span></button>
+            <button class="mood-btn" data-mood="Tired">😴<span>Tired</span></button>
+          </div>
+
+          <div class="recommendation-box" id="recommendationBox">
+            <strong>Recommended flow:</strong>
+            <p>Balanced beginner flow with gentle mobility and steady breath awareness.</p>
+          </div>
+        </section>
+
+        <section class="panel plan-panel">
+          <div class="section-header">
+            <span class="chip accent">Plan</span>
+            <h3>Recommended routine</h3>
+          </div>
+
+          <div class="plan-card" id="planCard">
+            <div class="plan-header">
+              <div>
+                <span class="label">Safe plan</span>
+                <h4 id="planTitle">Beginner Safe Flow</h4>
+              </div>
+              <span class="pill" id="safetyPill">Green</span>
+            </div>
+
+            <ul id="planList">
+              <li>5-minute breathing + shoulder mobility</li>
+              <li>Gentle standing poses</li>
+              <li>Focus on kneecap alignment and posture</li>
+            </ul>
+          </div>
+        </section>
+      </main>
+
+      <main class="practice-zone">
+        <section class="panel practice-panel" id="practicePanel">
+          <div class="practice-header">
+            <div>
+              <span class="chip accent">Live AI practice</span>
+              <h3>Warrior II Guidance</h3>
+            </div>
+            <button class="primary-btn small" id="togglePracticeBtn">Start session</button>
+          </div>
+
+          <div class="pose-stage" id="poseStage">
+            <div class="pose-person" aria-label="Yoga figure">
+              <span class="head"></span>
+              <span class="torso"></span>
+              <span class="arm left"></span>
+              <span class="arm right"></span>
+              <span class="leg left"></span>
+              <span class="leg right"></span>
+            </div>
+            <div class="pose-overlay">
+              <div class="angle-tag">
+                <span>Right knee</span>
+                <strong id="angleValue">62°</strong>
+              </div>
+              <div class="target-tag">Target: 80°–90°</div>
+            </div>
+          </div>
+
+          <div class="feedback-bar" id="feedbackBar">
+            <div class="feedback-pill" id="feedbackPill">Red</div>
+            <p id="feedbackText">டேய் தம்பி, தப்பு பண்றடா.</p>
+          </div>
+
+          <div class="slider-box">
+            <label for="kneeAngle">Adjust pose angle</label>
+            <input id="kneeAngle" type="range" min="25" max="110" value="62" />
+          </div>
+        </section>
+
+        <aside class="panel analytics-panel">
+          <div class="section-header">
+            <span class="chip accent">Session summary</span>
+            <h3>Progress</h3>
+          </div>
+
+          <div class="summary-grid">
+            <div class="metric">
+              <span>Practice time</span>
+              <strong>8 min</strong>
+            </div>
+            <div class="metric">
+              <span>Poses</span>
+              <strong>4</strong>
+            </div>
+            <div class="metric">
+              <span>Calories</span>
+              <strong>28 kcal</strong>
+            </div>
+            <div class="metric">
+              <span>Alignment</span>
+              <strong>71%</strong>
+            </div>
+          </div>
+
+          <div class="tip-box">
+            <h4>Hydration reminder</h4>
+            <p id="hydrationTip">Today is hot and humid. Keep water nearby before practice.</p>
+          </div>
+
+          <div class="tip-box alt">
+            <h4>Weather-aware meal</h4>
+            <p id="mealTip">Breakfast: idli + sambar + fruit. Midday: tender coconut water.</p>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
